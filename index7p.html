@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doc</title>
+</head>
+<body>
+</body>
+<script>
+  function Prop(uName, uAge) {
+    return {
+      [uName]: [uAge],
+      print() {
+        document.write(`${uName} : ${uAge} <br>`)
+      }
+    }
+  }
+
+  var person = ["Tom", "19", "Ben", "20", "Lina", "21"];
+  var car = ['BMW M5', "1987", 'Mers', "1111", 'Lincoln', "1111"];
+  var book = ["Kniga1", "1", 'Kniga2', "2", 'kniga3', "3"];
+
+  for (var i = 0; i < person.length; i += 2) {
+    var user = Prop(person[i], person[i + 1])
+    var bok = Prop(book[i], book[i + 1]);
+    var carr = Prop(car[i], car[i + 1]);
+    user.print();
+    bok.print();
+    carr.print();
+    document.write("<br>");
+  }
+</script>
+</body>
+
+</html>
