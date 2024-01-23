@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <input type="text" id="a" placeholder="A" />
+      <input type="text" id="b" placeholder="B" />
+      <input type="button" value="Send" onclick="fn()" />
+    </form>
+    <div id="res"></div>
+    <script>
+      function fn() {
+        var a = +document.getElementById("a").value;
+        var b = +document.getElementById("b").value;
+        var block = document.getElementById('res');
+        var addblock = document.createElement('p');
+
+        function nu(a,b) {
+          return (a > b) ? b : a;
+        }
+
+        for (var i = 2; i <= nu(a,b); i++) {
+          if(a % i == 0 && b % i == 0) {
+            var res = "err";
+            var textapp = document.createTextNode(res);
+            block.appendChild(addblock);
+            addblock.appendChild(textapp)
+            return;
+          }
+        }
+
+        for (i = 0; i <= b - 1; i++){
+          if(a * i > b && (a * i) % b == 1) {
+            res = `${a} * ${i} = ${(a * i) % b} (mod ${b}) == ${i}`;
+            var textapp = document.createTextNode(res);
+            block.appendChild(addblock);
+            addblock.appendChild(textapp);
+            break;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
