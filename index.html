@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Laba2</title>
+<script>
+
+function isNumber(a){
+if (typeof Number(a) != 'number' || a%1 != 0 || (a == '' || a.indexOf(' ') >= 0))
+return true;
+else
+return false;
+}
+
+function main(){
+let arr = document.getElementById('txtpole').value.split(',');
+let result = [];
+
+for (elem of arr){
+if (isNumber(elem)){
+document.getElementsByTagName('p')[0].innerHTML = "Ошибка! В последовательности могут быть только целочисленные значения!";
+return;
+	}
+}
+
+for (key in arr){
+if (arr[key] == 0)
+result.push(key);
+}
+
+if (result[0] == undefined)
+document.getElementsByTagName('p')[0].innerHTML = `Элементы равные нулю отсутствуют!`;
+else
+document.getElementsByTagName('p')[0].innerHTML = `Элементы равные нулю имеют следующие индексы: ${result.join(', ')}`;
+return;
+}
+
+</script>
+</head>
+<body style="display: flex; justify-content: center; align-items: center;">
+<div style="border-radius: 10px; box-shadow: 0px 0px 10px 0px; width: 300px; height: 300px; background-color: lightgray; display: flex; flex-direction: column; align-items: center; justify-content: space-evenly;">
+<label style="text-align: center;">Введите последовательность целых чисел через запятую без пробелов:</label>
+<input type="text" id="txtpole">
+<input type="button" value="Старт" onclick="main()">
+<p style="text-align: center;"></p>
+</div>
+</body>
+</html>
